@@ -1,0 +1,3 @@
+[submodule "ext/CurlWrapper"]
+	path = ext/CurlWrapper
+	url = https://github.com/f3ath/CurlWrapper.git
