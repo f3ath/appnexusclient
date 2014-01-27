@@ -19,9 +19,11 @@ class AppNexusClient
 	/**
 	 * __construct
 	 *
+	 * @param string $username
+	 * @param string $password
+	 * @param string $host AppNexus hostname including "http://", example: http://api.adnxs.com
 	 * @param Curl $curl
-	 * @param mixed $host
-	 * @param int $retries Number of retries in case of network failure
+	 * @param TokenStorage $tokenStorage Auth token storage
 	 */
 	public function __construct($username, $password, $host, Curl $curl, TokenStorage $tokenStorage)
 	{
@@ -49,11 +51,11 @@ class AppNexusClient
 	}
 
 	/**
-	 * http
+	 * Do raw HTTP call
 	 *
 	 * @param string $method
 	 * @param string $path
-	 * @param array $post
+	 * @param array $post POST data
 	 * @param array $headers
 	 *
 	 * @return object response
@@ -99,7 +101,7 @@ class AppNexusClient
 	}
 
 	/**
-	 * Call server, (re)authenticating if necessary
+	 * Call the server, (re)authenticating if necessary
 	 *
 	 * @param string $method (GET|POST|PUT|DELETE)
 	 * @param string $path
