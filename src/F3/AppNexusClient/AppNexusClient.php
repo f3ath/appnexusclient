@@ -65,9 +65,11 @@ class AppNexusClient
 		$options = array(
 			CURLOPT_URL => $this->host.$path,
 			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_HTTPHEADER => $headers,
 		);
 		switch ($method) {
 			case self::GET:
+				$options[CURLOPT_POST] = false;
 				break;
 			case self::POST:
 				$options[CURLOPT_POST] = true;
@@ -108,7 +110,7 @@ class AppNexusClient
 	 * @param array $post POST data
 	 * @return object Response object
 	 */
-	protected function call($method, $path, array $post = array())
+	public function call($method, $path, array $post = array())
 	{
 		$useCachedToken = true;
 		$token = $this->tokenStorage->get($this->username);
@@ -119,7 +121,7 @@ class AppNexusClient
 				$useCachedToken = false;
 			}
 			try {
-				return $this->http($method, $path, $post, array('Authorization %s', $token));
+				return $this->http($method, $path, $post, array(sprintf('Authorization: %s', $token)));
 			} catch (TokenExpiredException $tokenExpired) {
 				$token = null; // drop the cached token
 			}
