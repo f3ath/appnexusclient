@@ -1,8 +1,6 @@
 <?php
 namespace F3\AppNexusClient;
 
-use F3\CurlWrapper\Curl;
-
 class AppNexusClient
 {
 	const GET = 'GET';
@@ -87,6 +85,7 @@ class AppNexusClient
 				throw new \InvalidArgumentException(sprintf('Invalid method: %s', $method));
 		}
 
+		$this->curl->init();
 		$this->curl->setOptArray($options);
 		$json = $this->curl->exec();
 		$response = json_decode($json);

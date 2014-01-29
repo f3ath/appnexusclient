@@ -2,9 +2,14 @@
 namespace F3\AppNexusClient;
 class AppNexusClientTest extends \PHPUnit_Framework_TestCase
 {
+	/**
+	 * testGetNewToken
+	 *
+	 * @return void
+	 */
 	public function testGetNewToken()
 	{
-		$curl = $this->getMock('F3\\CurlWrapper\\Curl');
+		$curl = $this->getMock('F3\\AppNexusClient\\Curl');
 		$storage = $this->getMock('F3\\AppNexusClient\\TokenStorage');
 		$c = new AppNexusClient('user', 'pass', 'http://example.com', $curl, $storage);
 
@@ -30,9 +35,14 @@ class AppNexusClientTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals('my_token', $c->getNewToken());
 	}
 
+	/**
+	 * testCall
+	 *
+	 * @return void
+	 */
 	public function testCall()
 	{
-		$curl = $this->getMock('F3\\CurlWrapper\\Curl');
+		$curl = $this->getMock('F3\\AppNexusClient\\Curl');
 
 		$storage = $this->getMock('F3\\AppNexusClient\\TokenStorage');
 		$storage->expects($this->once())

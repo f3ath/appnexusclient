@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <phpunit
+	bootstrap="autoload.php"
     backupGlobals="true"
     backupStaticAttributes="true"
     colors="true"
@@ -10,7 +11,7 @@
     verbose="true"
     syntaxCheck="true">
     <testsuites>
-        <testsuite name="Main Test Suite">
+        <testsuite name="Main">
             <directory>./test</directory>
         </testsuite>
     </testsuites>
