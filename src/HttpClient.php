@@ -7,6 +7,11 @@ use RuntimeException;
 
 class HttpClient
 {
+    /**
+     * curl
+     *
+     * @var F3\CurlWrapper\Curl
+     */
     private $curl;
 
     /**
@@ -14,9 +19,9 @@ class HttpClient
      *
      * @param F3\CurlWrapper\Curl $curl
      */
-    public function __construct(Curl $curl)
+    public function __construct(Curl $curl = null)
     {
-        $this->curl = $curl;
+        $this->curl = $curl ?: new Curl();
     }
 
     /**

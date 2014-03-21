@@ -18,16 +18,16 @@ class AppNexusClient
      * @param string $username
      * @param string $password
      * @param string $host AppNexus hostname including "http://", example: http://api.adnxs.com
-     * @param HttpClient $http
      * @param TokenStorage $tokenStorage Auth token storage
+     * @param HttpClient $http
      */
-    public function __construct($username, $password, $host, HttpClient $http, TokenStorage $tokenStorage)
+    public function __construct($username, $password, $host, TokenStorage $tokenStorage, HttpClient $http = null)
     {
         $this->username = $username;
         $this->password = $password;
         $this->host = $host;
-        $this->http = $http;
         $this->tokenStorage = $tokenStorage;
+        $this->http = $http ?: new HttpClient();
     }
 
     /**

@@ -19,7 +19,7 @@ class AppNexusClientTest extends \PHPUnit_Framework_TestCase
 
     public function testGetNewToken()
     {
-        $client = new AppNexusClient('user', 'pass', 'http://example.com', $this->http, $this->storage);
+        $client = new AppNexusClient('user', 'pass', 'http://example.com', $this->storage, $this->http);
         $this->http->expects($this->once())
             ->method('call')
             ->with(
@@ -46,7 +46,7 @@ class AppNexusClientTest extends \PHPUnit_Framework_TestCase
             ->with('user')
             ->will($this->returnValue('my_token'));
 
-        $client = $this->getMock('F3\\AppNexusClient\\AppNexusClient', array('getNewToken'), array('user', 'pass', 'http://example.com', $this->http, $this->storage));
+        $client = $this->getMock('F3\\AppNexusClient\\AppNexusClient', array('getNewToken'), array('user', 'pass', 'http://example.com', $this->storage, $this->http));
         $client->expects($this->never())
             ->method('getNewToken');
         $response = (object) array('status' => 'OK', 'foo' => 'bar');
@@ -67,7 +67,7 @@ class AppNexusClientTest extends \PHPUnit_Framework_TestCase
             ->method('set')
             ->with('user', 'my_token');
 
-        $client = $this->getMock('F3\\AppNexusClient\\AppNexusClient', array('getNewToken'), array('user', 'pass', 'http://example.com', $this->http, $this->storage));
+        $client = $this->getMock('F3\\AppNexusClient\\AppNexusClient', array('getNewToken'), array('user', 'pass', 'http://example.com', $this->storage, $this->http));
         $client->expects($this->once())
             ->method('getNewToken')
             ->will($this->returnValue('my_token'));
@@ -90,7 +90,7 @@ class AppNexusClientTest extends \PHPUnit_Framework_TestCase
             ->method('set')
             ->with('user', 'new_token');
 
-        $client = $this->getMock('F3\\AppNexusClient\\AppNexusClient', array('getNewToken'), array('user', 'pass', 'http://example.com', $this->http, $this->storage));
+        $client = $this->getMock('F3\\AppNexusClient\\AppNexusClient', array('getNewToken'), array('user', 'pass', 'http://example.com', $this->storage, $this->http));
         $client->expects($this->once())
             ->method('getNewToken')
             ->will($this->returnValue('new_token'));
@@ -121,7 +121,7 @@ class AppNexusClientTest extends \PHPUnit_Framework_TestCase
             ->method('set')
             ->with('user', 'new_token');
 
-        $client = $this->getMock('F3\\AppNexusClient\\AppNexusClient', array('getNewToken'), array('user', 'pass', 'http://example.com', $this->http, $this->storage));
+        $client = $this->getMock('F3\\AppNexusClient\\AppNexusClient', array('getNewToken'), array('user', 'pass', 'http://example.com', $this->storage, $this->http));
         $client->expects($this->once())
             ->method('getNewToken')
             ->will($this->returnValue('new_token'));
