@@ -1,0 +1,23 @@
+{
+    "name": "f3ath/appnexus",
+    "description": "Simple AppNexus (appnexus.com) client",
+    "keywords": ["appnexus", "appnexus.com", "api", "client"],
+    "homepage": "https://github.com/f3ath/AppNexusClient",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexey Karapetov",
+            "email": "karapetov@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "f3ath/curlwrapper": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "F3\\AppNexusClient\\": "src/"
+        }
+    }
+}
