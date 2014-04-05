@@ -4,7 +4,7 @@ A simple Appnexus API client
 
 #Install
 
-Via composer:
+Via [composer](https://getcomposer.org):
 `$ composer require "f3ath/appnexus"`
 
 #Use
