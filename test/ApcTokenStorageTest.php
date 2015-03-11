@@ -1,12 +1,9 @@
-<?php
-
-namespace {  
+<?php  
+namespace F3\AppNexusClient {  
     // This allow us to configure the behavior of the "global mock" 
     $mockApcStore = false;
     $mockApcFetch = false;
-}  
-  
-namespace F3\AppNexusClient {  
+    
     // apc_store and apc_fetch are not working on cli
     function apc_store() {  
         global $mockApcStore;  
