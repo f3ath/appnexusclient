@@ -8,7 +8,7 @@ Via [composer](https://getcomposer.org):
 
 #Use
 ```php
-$storage = new F3\AppNexusClient\ArrayTokenStorage(); // Memcached storage is also available
-$appnexus = new F3\AppNexusClient\AppNexusClient('username', 'password', "http://sand.api.appnexus.com", $storage);
+$storage = new F3\AppNexusClient\ArrayTokenStorage(); // Memcached or Apc storage is also available
+$appnexus = new F3\AppNexusClient\AppNexusClient('username', 'password', "http://api-console.client-testing.adnxs.net/", $storage);
 var_dump($appnexus->call(F3\AppNexusClient\HttpMethod::GET, '/user'));
 ```
