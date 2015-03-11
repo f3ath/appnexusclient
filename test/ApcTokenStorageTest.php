@@ -32,6 +32,9 @@ class ApcTokenStorageTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
+        if ( ! extension_loaded('apc')) {
+            $this->markTestSkipped('APC extension is not loaded');
+        }
         global $mockApcStore;
         global $mockApcFetch;
         $mockApcStore = true;
