@@ -59,7 +59,7 @@ class AppNexusClient
         $useCachedToken = true;
         $token = $this->tokenStorage->get($this->username);
         do {
-            if (!$token) { // expired or no token
+            if ( ! $token) { // expired or no token
                 $token = $this->getNewToken();
                 $this->tokenStorage->set($this->username, $token);
                 $useCachedToken = false;

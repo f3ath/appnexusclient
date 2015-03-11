@@ -7,7 +7,7 @@ class ArrayTokenStorageTest extends \PHPUnit_Framework_TestCase
     {
         $storage = new ArrayTokenStorage();
         $this->assertInstanceOf('F3\\AppNexusClient\\TokenStorage', $storage);
-        $this->assertNull($storage->get('foo'));
+        $this->assertFalse($storage->get('foo'));
         $storage->set('foo', 'bar');
         $this->assertEquals('bar', $storage->get('foo'));
     }

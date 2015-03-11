@@ -40,7 +40,7 @@ class MemcachedTokenStorage implements TokenStorage
      * get token
      *
      * @param string $username
-     * @return string|null
+     * @return string|false
      */
     public function get($username)
     {

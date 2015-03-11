@@ -31,10 +31,10 @@ class ArrayTokenStorage implements TokenStorage
      * get token
      *
      * @param string $username
-     * @return string|null
+     * @return string|false
      */
     public function get($username)
     {
-        return isset($this->storage[$username]) ? $this->storage[$username] : null;
+        return isset($this->storage[$username]) ? $this->storage[$username] : false;
     }
 }

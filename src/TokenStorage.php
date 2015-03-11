@@ -16,7 +16,7 @@ interface TokenStorage
 	 * get token for given username
 	 *
 	 * @param string $username
-	 * @return string
+	 * @return string|false
 	 */
 	public function get($username);
 }

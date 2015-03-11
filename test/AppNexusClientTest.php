@@ -62,7 +62,7 @@ class AppNexusClientTest extends \PHPUnit_Framework_TestCase
         $this->storage->expects($this->once())
             ->method('get')
             ->with('user')
-            ->will($this->returnValue(null));
+            ->will($this->returnValue(false));
         $this->storage->expects($this->once())
             ->method('set')
             ->with('user', 'my_token');
