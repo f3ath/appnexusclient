@@ -6,17 +6,17 @@ use stdClass;
 
 class ServerException extends RuntimeException
 {
-	private $response;
+    private $response;
 
     /**
      * __construct
      *
      * @param object $response Server response
      */
-	public function __construct(stdClass $response)
-	{
-		parent::__construct(@$response->error);
-		$this->response = $response;
+    public function __construct(stdClass $response)
+    {
+	    parent::__construct(@$response->error);
+	    $this->response = $response;
 	}
 
 	/**
@@ -26,6 +26,6 @@ class ServerException extends RuntimeException
 	 */
 	public function getResponse()
 	{
-		return $this->response;
+        return $this->response;
 	}
 }
