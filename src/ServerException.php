@@ -11,21 +11,21 @@ class ServerException extends RuntimeException
     /**
      * __construct
      *
-     * @param object $response Server response
+     * @param stdClass $response Server response
      */
     public function __construct(stdClass $response)
     {
-	    parent::__construct(@$response->error);
-	    $this->response = $response;
-	}
+        parent::__construct(@$response->error);
+        $this->response = $response;
+    }
 
-	/**
-	 * getResponse
-	 *
-	 * @return object
-	 */
-	public function getResponse()
-	{
+    /**
+     * getResponse
+     *
+     * @return object
+     */
+    public function getResponse()
+    {
         return $this->response;
-	}
+    }
 }
