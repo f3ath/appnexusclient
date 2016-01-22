@@ -5,9 +5,6 @@ namespace F3\AppNexusClient;
  * ArrayTokenStorage
  *
  * @uses TokenStorage
- * @package
- * @version $id$
- * @copyright Alexey Karapetov
  * @author Alexey Karapetov <karapetov@gmail.com>
  * @license http://opensource.org/licenses/mit-license.php The MIT License (MIT)
  */

@@ -12,14 +12,14 @@ class HttpClient
     /**
      * curl
      *
-     * @var F3\CurlWrapper\Curl
+     * @var Curl
      */
     private $curl;
 
     /**
      * __construct
      *
-     * @param F3\CurlWrapper\Curl $curl
+     * @param Curl $curl
      */
     public function __construct(Curl $curl = null)
     {

@@ -6,6 +6,9 @@ use stdClass;
 
 class ServerException extends RuntimeException
 {
+    /**
+     * @var stdClass
+     */
     private $response;
 
     /**

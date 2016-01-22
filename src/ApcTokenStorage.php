@@ -5,8 +5,6 @@ namespace F3\AppNexusClient;
  * ApcTokenStorage
  *
  * @uses TokenStorage
- * @package
- * @version $id$
  * @copyright Federico Nicolás Motta
  * @author Federico Nicolás Motta <fedemotta@gmail.com>
  * @license http://opensource.org/licenses/mit-license.php The MIT License (MIT)

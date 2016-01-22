@@ -1,9 +1,6 @@
 <?php
 namespace F3\AppNexusClient;
 
-use InvalidArgumentException;
-use RuntimeException;
-
 class AppNexusClient
 {
     private $http;
