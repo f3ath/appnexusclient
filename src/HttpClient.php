@@ -7,6 +7,8 @@ use RuntimeException;
 
 class HttpClient
 {
+    const CONTENT_TYPE_JSON = 'application/json';
+
     /**
      * curl
      *
@@ -63,10 +65,14 @@ class HttpClient
 
         $this->curl->init();
         $this->curl->setOptArray($options);
-        $json = $this->curl->exec(1, true);
-        $response = json_decode($json);
+        $rawResponse = $this->curl->exec(1, true);
+        $contentType = $this->curl->getInfo(CURLINFO_CONTENT_TYPE);
+        if ($contentType !== self::CONTENT_TYPE_JSON) {
+            return $rawResponse;
+        }
+        $response = json_decode($rawResponse);
         if (!isset($response->response)) {
-            throw new RuntimeException(sprintf('Unexpected response: %s', $json));
+            throw new RuntimeException(sprintf('Unexpected response: %s', $rawResponse));
         }
         $response = $response->response;
         if ('OK' == @$response->status) {
