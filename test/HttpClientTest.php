@@ -96,6 +96,17 @@ class HttpClientTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider httpMethods
+     */
+    public function testCallWhenResponseIsJSONWithCharset($method, $options)
+    {
+        $response = (object) array('status' => 'OK');
+        $contentType = 'application/json; charset=utf-8';
+        $this->initCurlMock($options, json_encode(array('response' => $response)), $contentType);
+        $this->assertEquals($response, $this->http->call($method, $this->url, array('foo' => 'bar')));
+    }
+
+    /**
+     * @dataProvider httpMethods
      * @expectedException RuntimeException
      * @expectedExceptionMessage Unexpected response: Pew-pew!
      */
