@@ -67,7 +67,7 @@ class HttpClient
         $this->curl->setOptArray($options);
         $rawResponse = $this->curl->exec(1, true);
         $contentType = $this->curl->getInfo(CURLINFO_CONTENT_TYPE);
-        if ($contentType !== self::CONTENT_TYPE_JSON) {
+        if (strpos($contentType, self::CONTENT_TYPE_JSON) === false) {
             return $rawResponse;
         }
         $response = json_decode($rawResponse);
