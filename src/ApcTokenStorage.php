@@ -16,9 +16,6 @@ class ApcTokenStorage implements TokenStorage
 
     public function __construct($prefix = '',  $ttl = 0 )
     {
-        if ( ! extension_loaded('apc')) {
-            throw new \RuntimeException('APC extension is not loaded');
-        }
         $this->prefix = $prefix;
         $this->ttl = $ttl;
     }

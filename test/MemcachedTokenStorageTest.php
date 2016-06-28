@@ -8,7 +8,9 @@ class MemcachedTokenStorageTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->mc = $this->getMock('Memcached', array('set', 'get'));
+        $this->mc = $this->getMockBuilder('Memcached')
+            ->setMethods(array('set', 'get'))
+            ->getMock();
         $this->storage = new MemcachedTokenStorage($this->mc, 'pref_');
     }
 
