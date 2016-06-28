@@ -1,29 +1,15 @@
 <?php
 namespace F3\AppNexusClient;
 
-// This allow us to configure the behavior of the "global mock"
-$mockApcStore = false;
-$mockApcFetch = false;
-
 // apc_store and apc_fetch are not working on cli
 function apc_store()
 {
-    global $mockApcStore;
-    if (isset($mockApcStore)) {
-        return $mockApcStore;
-    } else {
-        return false;
-    }
+    return true;
 }
 
 function apc_fetch()
 {
-    global $mockApcFetch;
-    if (isset($mockApcFetch)) {
-        return $mockApcFetch;
-    } else {
-        return false;
-    }
+    return 'bar';
 }
 
 class ApcTokenStorageTest extends \PHPUnit_Framework_TestCase
@@ -33,12 +19,8 @@ class ApcTokenStorageTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         if ( ! extension_loaded('apc')) {
-            $this->markTestSkipped('APC extension is not loaded');
+            //$this->markTestSkipped('APC extension is not loaded');
         }
-        global $mockApcStore;
-        global $mockApcFetch;
-        $mockApcStore = true;
-        $mockApcFetch = 'bar';
         $this->storage = new ApcTokenStorage('pref_', 0);
     }
 

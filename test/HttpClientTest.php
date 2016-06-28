@@ -10,7 +10,8 @@ class HttpClientTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->url = 'http://example.com/test';
-        $this->curl = $this->getMock('F3\\CurlWrapper\\Curl');
+        $this->curl = $this->getMockBuilder('PHPCurl\\CurlWrapper\\Curl')
+            ->getMock();
         $this->http = new HttpClient($this->curl);
     }
 
@@ -107,7 +108,7 @@ class HttpClientTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider httpMethods
-     * @expectedException RuntimeException
+     * @expectedException \RuntimeException
      * @expectedExceptionMessage Unexpected response: Pew-pew!
      */
     public function testInvalidResponse($method, $options)
@@ -118,7 +119,7 @@ class HttpClientTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider httpMethods
-     * @expectedException F3\AppNexusClient\ServerException
+     * @expectedException \F3\AppNexusClient\ServerException
      * @expectedExceptionMessage Foo error
      */
     public function testServerError($method, $options)
@@ -133,7 +134,7 @@ class HttpClientTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider httpMethods
-     * @expectedException F3\AppNexusClient\TokenExpiredException
+     * @expectedException \F3\AppNexusClient\TokenExpiredException
      */
     public function testTokenExpired($method, $options)
     {
@@ -146,7 +147,7 @@ class HttpClientTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException InvalidArgumentException
+     * @expectedException \InvalidArgumentException
      * @expectedExceptionMessage Invalid method: BOO
      */
     public function testInvalidMethod()

@@ -1,7 +1,7 @@
 <?php
 namespace F3\AppNexusClient;
 
-use F3\CurlWrapper\Curl;
+use PHPCurl\CurlWrapper\Curl;
 use InvalidArgumentException;
 use RuntimeException;
 
