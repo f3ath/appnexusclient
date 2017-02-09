@@ -27,6 +27,70 @@ class HttpClient
     }
 
     /**
+     * Do raw HTTP GET call
+     *
+     * @param string $url
+     * @param array $post POST data
+     * @param array $headers
+     *
+     * @return object response
+     */
+    public function get($url, array $post = array(), array $headers = array())
+    {
+
+        return $this->call(HttpMethod::GET,$url,$post,$headers);
+
+    }
+
+    /**
+     * Do raw HTTP POST call
+     *
+     * @param string $url
+     * @param array $post POST data
+     * @param array $headers
+     *
+     * @return object response
+     */
+    public function post($url, array $post = array(), array $headers = array())
+    {
+
+        return $this->call(HttpMethod::POST,$url,$post,$headers);
+
+    }
+
+    /**
+     * Do raw HTTP PUT call
+     *
+     * @param string $url
+     * @param array $post POST data
+     * @param array $headers
+     *
+     * @return object response
+     */
+    public function put($url, array $post = array(), array $headers = array())
+    {
+
+        return $this->call(HttpMethod::PUT,$url,$post,$headers);
+
+    }
+
+    /**
+     * Do raw HTTP DELETE call
+     *
+     * @param string $url
+     * @param array $post POST data
+     * @param array $headers
+     *
+     * @return object response
+     */
+    public function delete($url, array $post = array(), array $headers = array())
+    {
+
+        return $this->call(HttpMethod::DELETE,$url,$post,$headers);
+
+    }
+
+    /**
      * Do raw HTTP call
      *
      * @param string $method
