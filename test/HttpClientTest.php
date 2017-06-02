@@ -147,6 +147,21 @@ class HttpClientTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @dataProvider httpMethods
+     * @expectedException \F3\AppNexusClient\TokenExpiredException
+     */
+    public function testTokenExpiredWithErrorMessage($method, $options)
+    {
+        $response = (object) array(
+            'status' => 'OMG',
+            'error_id' => 'SYNTAX',
+            'error' => 'Authentication failed - not logged in'
+        );
+        $this->initCurlMock($options, json_encode(array('response' => $response)));
+        $this->http->call($method, $this->url, array('foo' => 'bar'));
+    }
+
+    /**
      * @expectedException \InvalidArgumentException
      * @expectedExceptionMessage Invalid method: BOO
      */
