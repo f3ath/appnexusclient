@@ -77,7 +77,7 @@ class HttpClient
         $response = $response->response;
         if ('OK' == @$response->status) {
             return $response;
-        } elseif ('NOAUTH' == @$response->error_id) {
+        } elseif ('NOAUTH' == @$response->error_id || 'Authentication failed - not logged in' == @$response->error) {
             throw new TokenExpiredException($response);
         }
         throw new ServerException($response);
