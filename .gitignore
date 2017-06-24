@@ -1,9 +1,3 @@
 vendor/
 composer.lock
 phpunit.xml
-
-# Ides
-.idea*
-
-#OS
-.DS_Store
