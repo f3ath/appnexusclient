@@ -1,4 +1,4 @@
-#AppNexusClient
+# AppNexusClient
 [![Total Downloads](https://img.shields.io/packagist/dt/f3ath/appnexus.svg)](https://packagist.org/packages/f3ath/appnexus)
 [![Latest Stable Version](https://img.shields.io/packagist/v/f3ath/appnexus.svg)](https://packagist.org/packages/f3ath/appnexus)
 [![Travis Build](https://travis-ci.org/f3ath/appnexusclient.svg?branch=master)](https://travis-ci.org/f3ath/appnexusclient)
@@ -6,11 +6,11 @@
 
 A simple Appnexus API client
 
-#Install
+# Install
 Via [composer](https://getcomposer.org):
 `$ composer require "f3ath/appnexus"`
 
-#Use
+# Use
 ```php
 $storage = new F3\AppNexusClient\ArrayTokenStorage(); // Memcached and Apc storage are also available
 $appnexus = new F3\AppNexusClient\AppNexusClient('username', 'password', "http://api-console.client-testing.adnxs.net/", $storage);
