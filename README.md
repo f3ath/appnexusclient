@@ -6,6 +6,8 @@
 
 A simple Appnexus API client
 
+# You can help development of this library by providing me an API key
+
 # Install
 Via [composer](https://getcomposer.org):
 `$ composer require "f3ath/appnexus"`
