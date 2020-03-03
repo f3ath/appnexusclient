@@ -3,7 +3,7 @@ namespace F3\AppNexusClient;
 
 class AppNexusClient
 {
-    private $http;
+    protected $http;
     private $host;
     private $username;
     private $password;
